@@ -1,5 +1,5 @@
 from flaskext.mysql import MySQL
-from flask import render_template, request, redirect, send_from_directory, Flask
+from flask import render_template, request, redirect, url_for, send_from_directory, Flask
 from datetime import datetime #Nos permitirá darle el nombre a la foto
 import os # modulo que me permite borrar la foto
 
