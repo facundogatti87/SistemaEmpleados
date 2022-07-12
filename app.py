@@ -1,10 +1,11 @@
 from flaskext.mysql import MySQL
-from flask import render_template, request, redirect, url_for, send_from_directory, Flask
+from flask import render_template, request, redirect, url_for, send_from_directory, Flask, flash
 from datetime import datetime #Nos permitirá darle el nombre a la foto
 import os # modulo que me permite borrar la foto
 
 
 app = Flask(__name__)
+app.secret_key="codoacodo"
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
@@ -86,6 +87,10 @@ def storage():
     _nombre=request.form['txtNombre']
     _correo=request.form['txtCorreo']
     _foto=request.files['txtFoto']
+
+    if _nombre == '' or _correo == '' or _foto =='':
+        flash('Recuerda llenar los datos de los campos')
+        return redirect(url_for('create'))
 
     now= datetime.now() #obtengo fecha y hora
     tiempo= now.strftime("%Y%H%M%S") #extraigo partes de la fecha
