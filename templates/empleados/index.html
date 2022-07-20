@@ -8,7 +8,7 @@ Ingresar nuevo empleado
 <br>
 
         <table class="table table-light">
-            <thead class="thead-light">
+            <thead class="thead-dark">
                 <tr>
                     <th>#</th>
                     <th>Foto</th>
@@ -27,7 +27,7 @@ Ingresar nuevo empleado
                     <td>{{empleado[1]}}</td>
                     <td>{{empleado[2]}}</td>
                     <td>
-                        <a class="btn btn-warning" href="/edit/{{empleado[0]}}">Editar</a> |
+                        <a class="btn btn-info" href="/edit/{{empleado[0]}}">Editar</a> |
                         <a class="btn btn-danger" onclick="return confirm('¿Desea borrar al empleado?')" href="/destroy/{{empleado[0]}}">Eliminar</a>
                     </td>
                 </tr>
